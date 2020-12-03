@@ -8,8 +8,14 @@
     7, the word cat. If it's divisible by both, then it's replaced with "dogcat".
 </p>
 
-<p>Lower Bound: <input @bind="lowerBound" /></p>
-<p>Upper Bound: <input @bind="upperBound" /></p>
+<p>
+    <label for="lower-bound">Lower Bound: </label>
+    <input id="lower-bound" @bind="lowerBound" />
+</p>
+<p>
+    <label for="upper-bound">Upper Bound: </label>
+    <input id="upper-bound" @bind="upperBound" />
+</p>
 <button class="btn btn-primary" @onclick="PlayDogCat">Submit Bounds</button>
 
 @if (numberList != null)

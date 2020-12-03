@@ -91,7 +91,7 @@ using DogCatWebApp.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 26 "C:\Users\csema\Documents\DogCatBlazor\DogCatBlazor\DogCatWebApp\DogCatWebApp\Pages\Index.razor"
+#line 32 "C:\Users\csema\Documents\DogCatBlazor\DogCatBlazor\DogCatWebApp\DogCatWebApp\Pages\Index.razor"
        
     private int lowerBound = 1;
     private int upperBound = 100;
