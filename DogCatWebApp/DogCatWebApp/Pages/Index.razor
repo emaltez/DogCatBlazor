@@ -1,7 +1,70 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<h1>DogCat Viewer</h1>
 
-Welcome to your new app.
+<p>
+    This is a demonstration of a game where you count up between a user-defined set of bounds. 
+    If the number is divisible by 2, the number is replaced with the word "dog". If it's divisible by 
+    7, the word cat. If it's divisible by both, then it's replaced with "dogcat".
+</p>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<p>Lower Bound: <input @bind="lowerBound" /></p>
+<p>Upper Bound: <input @bind="upperBound" /></p>
+<button class="btn btn-primary" @onclick="PlayDogCat">Submit Bounds</button>
+
+@if (numberList != null)
+{
+    <ul>
+        @foreach (string item in numberList)
+        {
+            <li>@item</li>
+        }
+    </ul>
+}
+
+
+@code {
+    private int lowerBound = 1;
+    private int upperBound = 100;
+
+    private string[] numberList;
+
+    private void PlayDogCat()
+    {
+        //set the size of the list based on input bounds
+        numberList = new string[upperBound - lowerBound + 1];
+        //words to be used
+        string firstWord = "dog";
+        string secondWord = "cat";
+        //multiples to be replaced with words
+        int firstNumber = 2;
+        int secondNumber = 7;
+
+        //build list
+        for (int i = 0; i < numberList.Length; i++)
+        {
+            string message = "";
+
+            //check divisibility
+            if ((i + lowerBound) % firstNumber == 0)
+            {
+                message += firstWord;
+            }
+            if ((i + lowerBound) % secondNumber == 0)
+            {
+                message += secondWord;
+            }
+
+            //add appropriate string
+            if (message.Equals(""))
+            {
+                numberList[i] = "" + (i+lowerBound);
+            }
+            else
+            {
+                numberList[i] = message;
+            }
+
+        }
+    }
+}

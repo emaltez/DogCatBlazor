@@ -90,6 +90,56 @@ using DogCatWebApp.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 26 "C:\Users\csema\Documents\DogCatBlazor\DogCatBlazor\DogCatWebApp\DogCatWebApp\Pages\Index.razor"
+       
+    private int lowerBound = 1;
+    private int upperBound = 100;
+
+    private string[] numberList;
+
+    private void PlayDogCat()
+    {
+        //set the size of the list based on input bounds
+        numberList = new string[upperBound - lowerBound + 1];
+        //words to be used
+        string firstWord = "dog";
+        string secondWord = "cat";
+        //multiples to be replaced with words
+        int firstNumber = 2;
+        int secondNumber = 7;
+
+        //build list
+        for (int i = 0; i < numberList.Length; i++)
+        {
+            string message = "";
+
+            //check divisibility
+            if ((i + lowerBound) % firstNumber == 0)
+            {
+                message += firstWord;
+            }
+            if ((i + lowerBound) % secondNumber == 0)
+            {
+                message += secondWord;
+            }
+
+            //add appropriate string
+            if (message.Equals(""))
+            {
+                numberList[i] = "" + (i+lowerBound);
+            }
+            else
+            {
+                numberList[i] = message;
+            }
+
+        }
+    }
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591
